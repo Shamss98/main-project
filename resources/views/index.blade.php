@@ -36,7 +36,7 @@
         
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: white !important;
             display: flex;
             align-items: center;
