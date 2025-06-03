@@ -33,6 +33,6 @@ RESTful API
 
 JWT Authentication (optional if implemented)
 
-📦 Getting Started
+ Getting Started
 You can include installation and setup instructions here if you want later. For now, the above gives a clear overview.
 
