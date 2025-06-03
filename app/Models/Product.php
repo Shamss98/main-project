@@ -17,6 +17,14 @@ class Product extends Model
         'image'
     ];
 
+    // في Product model
+protected $appends = ['image_url'];
+
+public function getImageUrlAttribute()
+{
+    return $this->image ? url($this->image) : null;
+}
+
     public function orders()
     {
         return $this->hasMany(Order::class);
