@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,14 +12,15 @@ use Illuminate\Validation\Rules;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(AuthRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'phone' => 'nullable|string|max:15',
-        ]);
+         $validated = $request->validated();
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'email' => 'required|string|email|max:255|unique:users',
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        //     'phone' => 'nullable|string|max:15',
+        // ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -36,7 +39,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
