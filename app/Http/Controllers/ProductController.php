@@ -61,7 +61,7 @@ class ProductController extends Controller
 
         // Handle new image upload
         if ($request->hasFile('image')) {
-            // حذف الصورة القديمة إذا كانت موجودة
+            
             $oldImage = str_replace('/storage', '', $product->image);
             Storage::disk('public')->delete($oldImage);
             
