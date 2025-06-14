@@ -1,4 +1,4 @@
-@include('shorts.nav');
+{{-- @include('shorts.nav');
 @section('title', 'Login')
 <!DOCTYPE html>
 <html lang="en">
@@ -54,4 +54,4 @@
         <button type="submit">Login</button>
     </form>
 </body>
-</html>
+</html> --}}
